@@ -6,14 +6,14 @@ It supports GitHub login, team-based organization, app-specific configuration,
 and sends email alerts when newer versions are available—making dependency tracking simple,
 proactive, and secure.
 
-SecureStack is a full-stack Kotlin Spring Boot app:
-
-* Tracks versions of software (Java, Kotlin, IntelliJ, Git, Spring Boot, etc.)
-* Monitors Gradle/Maven dependencies for version updates
-* Sends email alerts on new versions
-* Supports teams and apps, with scoped software/dependency tracking
-* Uses GitHub OAuth for authentication
-* Includes a frontend, ideally packaged with the backend
+**SecureStack** is a full-stack **Kotlin Spring Boot app**:
+* Uses **PostgreSQL** database for storing 
+  * users and teams, 
+  * teams software (for example Git, Java, IntelliJ, Kotlin)
+  * applications and their software and Gradle/Maven dependencies for version updates
+* Sends **email alerts** on new versions
+* Uses **GitHub OAuth** for authentication
+* Includes a **Thymeleaf** frontend, packaged with the backend
 
 
 Table of contents:
@@ -42,7 +42,7 @@ In IntelliJ welcome screen use `Clone Repository` and enter
 
 ...or...
 
-![Download](_docs/download-black-24x24.svg) [Download ZIP](https://github.com/ditlef9/securestack-kotlin-springboot-postgresql/archive/refs/heads/main.zip) of the course material
+![Download](_docs/download-black-24x24.svg) [Download ZIP](https://github.com/ditlef9/securestack-kotlin-springboot-postgresql/archive/refs/heads/main.zip)
 
 ...or...
 
@@ -65,7 +65,7 @@ The Project uses the [latest LTS version of Java](https://www.oracle.com/java/te
 
 ## 🛠️ 3 How the Application Was Created
 
-3.1 Created a starter at https://start.spring.io/
+### 3.1 Created a starter at https://start.spring.io/
 
 * Project: Gradle - Kotlin
 * Language: Kotlin
