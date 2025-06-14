@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="'App: ' + ${app.name}">App Details</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<a href="/apps">← Back to list</a>
+<h1 th:text="${app.name}">App Name</h1>
+
+<p><strong>Team:</strong> <span th:text="${app.team.name}">Team Name</span></p>
+
+<h2>Dependencies</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Group ID</th>
+        <th>Artifact ID</th>
+        <th>Current Version</th>
+        <th>Latest Version</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dep : ${app.dependencies}">
+        <td th:text="${dep.groupId}">com.example</td>
+        <td th:text="${dep.artifactId}">library</td>
+        <td th:text="${dep.currentVersion}">1.0.0</td>
+        <td th:text="${dep.latestVersion}">1.2.3</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

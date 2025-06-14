@@ -103,7 +103,7 @@ Tables:
 |        users        |           |        teams        |           |      software       |
 |---------------------|           |---------------------|           |---------------------|
 | id (PK)             |           | id (PK)             |           | id (PK)             |
-| github_id (unique)   |          | name                |           | name                |
+| github_id (unique)  |           | name                |           | name                |
 | username            |           +---------------------+           | current_version     |
 | email               |                 ^       ^                   | latest_version      |
 +---------------------+                 |       |                   +---------------------+
@@ -167,6 +167,59 @@ Add controller and service once your data model and login work.
 * repository/ApplicationRepository.kt
 * repository/SoftwareToolRepository.kt
 * repository/DependencyRepository.kt
+
+### 4.3 DTOs
+
+For returning clean JSON in controllers.
+
+src/main/kotlin/com/securestack/dto/
+* UserDto.kt
+* AppDto.kt
+* DependencyDto.kt
+* TeamDto.kt
+
+### 4.4 Service Layer
+
+Create logic between controllers and repositories:
+
+    UserService.kt
+
+    TeamService.kt
+
+    AppService.kt
+
+    DependencyService.kt
+
+### 4.5 Controller Layer
+
+Start with:
+
+    AuthController.kt (GitHub login flow)
+
+    AppController.kt (create, list apps + dependencies)
+
+    TeamController.kt (view team info)
+
+Use:
+
+    @RestController for API
+
+    @Controller + @GetMapping for Thymeleaf views
+
+
+### 4.6 HTML Frontend (Thymeleaf)
+
+Simple templates for:
+
+    login.html
+
+    dashboard.html
+
+    app-detail.html
+
+Located in:
+src/main/resources/templates/
+
 ---
 
 ## 📜 4 License

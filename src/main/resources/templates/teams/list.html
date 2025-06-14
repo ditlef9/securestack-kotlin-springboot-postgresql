@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Teams - SecureStack</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<h1>Your Teams</h1>
+
+<a href="/dashboard">← Dashboard</a>
+
+<ul>
+    <li th:each="team : ${teams}" th:text="${team.name}">Team Name</li>
+</ul>
+</body>
+</html>

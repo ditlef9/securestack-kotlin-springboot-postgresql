@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard - SecureStack</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<h1>Dashboard</h1>
+
+<p>Welcome, <strong th:text="${username}">GitHubUser</strong></p>
+
+<ul>
+    <li><a href="/apps">Manage Applications</a></li>
+    <li><a href="/teams">Your Teams</a></li>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+</body>
+</html>

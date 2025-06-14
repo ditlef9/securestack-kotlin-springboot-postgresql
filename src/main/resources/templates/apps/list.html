@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Applications - SecureStack</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<h1>Your Applications</h1>
+
+<a href="/logout">Logout</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Dependencies</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="app : ${apps}">
+        <td th:text="${app.name}">App Name</td>
+        <td th:text="${app.team.name}">Team Name</td>
+        <td th:text="${#lists.size(app.dependencies)}">0</td>
+        <td>
+            <a th:href="@{/apps/{id}(id=${app.id})}">View</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Add New App</h2>
+<form action="/apps" method="post">
+    <input type="text" name="name" placeholder="App Name" required />
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>
