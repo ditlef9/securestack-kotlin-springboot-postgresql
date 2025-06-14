@@ -3,14 +3,14 @@
 SecureStack is a full-stack Kotlin Spring Boot application that helps development
 teams stay secure and up-to-date by monitoring software tools and project dependencies for version updates.
 It supports GitHub login, team-based organization, app-specific configuration,
-and sends email alerts when newer versions are available—making dependency tracking simple,
-proactive, and secure.
+and sends email alerts when newer versions are available
+— making dependency tracking simple, proactive, and secure.
 
 **SecureStack** is a full-stack **Kotlin Spring Boot app**:
 * Uses **PostgreSQL** database for storing 
-  * users and teams, 
-  * teams software (for example Git, Java, IntelliJ, Kotlin)
-  * applications and their software and Gradle/Maven dependencies for version updates
+  * **users** and **teams**, 
+  * **teams software** (for example Git, Java, IntelliJ, Kotlin)
+  * **applications and their software and Gradle/Maven dependencies** for version updates
 * Sends **email alerts** on new versions
 * Uses **GitHub OAuth** for authentication
 * Includes a **Thymeleaf** frontend, packaged with the backend
@@ -19,8 +19,9 @@ proactive, and secure.
 Table of contents:
 1. [🖥️ Run Locally](#%EF%B8%8F-2-setup-development-environment-software-installation-guide)
 2. [☁️ Run at Hetzner (in the Cloud)](#-3-technologies-covered)
-3. [🛠️ How the Application Was Created](#-3-technologies-covered)
-4. [📜 License](#-7-license)
+3. [📁 App Structure](#-3-technologies-covered)
+4. [🛠️ How the Application Was Created](#-3-technologies-covered)
+5. [📜 License](#-7-license)
 
 ---
 
@@ -29,7 +30,7 @@ Table of contents:
 
 ### 1.1 Install [PostgreSQL](https://www.postgresql.org/download). Linux and macOS: You should install pgAdmin also.
 
-### 1.2 Create a PostgreSQL database named `securestack`.
+### 1.2 Create a PostgreSQL database named `securestack-dev`.
 
 ### 1.3 Download [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download).
 
@@ -53,6 +54,13 @@ git clone https://github.com/ditlef9/securestack-kotlin-springboot-postgresql.gi
 
 The Project uses the [latest LTS version of Java](https://www.oracle.com/java/technologies/java-se-support-roadmap.html).
 
+### 1.5 Set application properties
+
+Go to `src/main/resources/application.properties`:
+
+* Update PostgreSQL username+password
+* Update JWT Secret
+
 
 
 
@@ -62,10 +70,68 @@ The Project uses the [latest LTS version of Java](https://www.oracle.com/java/te
 
 ---
 
+## 📁 3. App Structure
 
-## 🛠️ 3 How the Application Was Created
+```graphql
+src
+└── main
+    ├── kotlin
+    │   └── com
+    │       └── securestack
+    │           ├── auth         # GitHub OAuth config, user details service
+    │           ├── config       # Security, mail, and app configurations
+    │           ├── controller   # Web and REST controllers
+    │           ├── domain       # JPA entities (User, Team, App, etc.)
+    │           ├── dto          # DTOs for API input/output
+    │           ├── repository   # Spring Data JPA interfaces
+    │           ├── service      # Business logic and schedulers
+    │           └── util         # Helper classes (e.g., version checkers)
+    ├── resources
+    │   ├── templates            # Thymeleaf HTML templates
+    │   ├── static               # CSS, JS, images
+    │   ├── application.yml      # Spring configuration
+    │   └── mail                 # Email templates (optional)
+    └── test                    # Your unit and integration tests
 
-### 3.1 Created a starter at https://start.spring.io/
+```
+
+
+Tables:
+
+```pgsql
++---------------------+           +---------------------+           +---------------------+
+|        users        |           |        teams        |           |      software       |
+|---------------------|           |---------------------|           |---------------------|
+| id (PK)             |           | id (PK)             |           | id (PK)             |
+| github_id (unique)   |          | name                |           | name                |
+| username            |           +---------------------+           | current_version     |
+| email               |                 ^       ^                   | latest_version      |
++---------------------+                 |       |                   +---------------------+
+          ^                            *|       |*                        
+          |                             +-------+                          
+          |                          user_team (join table)                  
+          |                          ----------------------                  
+          |                          | user_id (FK -> users.id)              
+          |                          | team_id (FK -> teams.id)              
+          |                          +----------------------                  
+
++---------------------+           +----------------------------+
+|     applications    |           |       app_dependencies      |
+|---------------------|           |----------------------------|
+| id (PK)             | <---1---* | id (PK)                    |
+| name                |           | group_id                   |
+| team_id (FK -> teams)|          | artifact_id                |
++---------------------+           | current_version            |
+                                  | latest_version             |
+                                  | app_id (FK -> applications.id) |
+                                  +----------------------------+
+```
+
+---
+
+## 🛠️ 4 How the Application Was Created
+
+### 4.1 Created a starter at https://start.spring.io/
 
 * Project: Gradle - Kotlin
 * Language: Kotlin
@@ -83,6 +149,24 @@ Dependencies:
 * I/O:
 	* Validation	For input validation (e.g. form fields, request data)
 
+
+### 4.2 Start with domain, repository, auth, and config
+
+
+Add controller and service once your data model and login work.
+
+* auth/GitHubOAuth2UserService.kt
+* config/SecurityConfig.kt
+* domain/User.kt
+* domain/Team.kt
+* domain/Application.kt
+* domain/SoftwareTool.kt
+* domain/Dependency.kt
+* repository/UserRepository.kt
+* repository/TeamRepository.kt
+* repository/ApplicationRepository.kt
+* repository/SoftwareToolRepository.kt
+* repository/DependencyRepository.kt
 ---
 
 ## 📜 4 License
