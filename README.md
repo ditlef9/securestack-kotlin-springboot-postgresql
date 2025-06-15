@@ -21,7 +21,7 @@ Table of contents:
 2. [☁️ Run at Hetzner (in the Cloud)](#%EF%B8%8F-2-run-at-hetzner-in-the-cloud)
 3. [📁 App Structure](#-3-app-structure)
 4. [🛠️ How the Application Was Created](#%EF%B8%8F-4-how-the-application-was-created)
-5. [🐦️ Say Hello to Magpie - The Mascot for SecureStack](#-3-technologies-covered)
+5. [🐦️ Say Hello to Magpie - The Mascot for SecureStack](#%EF%B8%8F-5-say-hello-to-magpie---the-mascot-for-securestack)
 6. [📜 License](#-6-license)
 
 ---
@@ -223,7 +223,7 @@ src/main/resources/templates/
 
 ---
 
-## 🐦️ 4 Say Hello to Magpie - The Mascot for SecureStack
+## 🐦️ 5 Say Hello to Magpie - The Mascot for SecureStack
 
 Every software team has *that* one teammate — 
 the one who notices when your Spring Boot version is two releases behind… 
@@ -251,7 +251,7 @@ Let it squawk so you don't have to.
 
 ---
 
-## 📜 5 License
+## 📜 6 License
 
 
 This project is licensed under the
