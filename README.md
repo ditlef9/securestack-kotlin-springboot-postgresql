@@ -225,6 +225,9 @@ src/main/resources/templates/
 
 ## 🐦️ 5 Say Hello to Magpie - The Mascot for SecureStack
 
+![Magpie - The Mascot for SecureStack](_docs/securestack-magpie-48x48.png)
+
+
 Every software team has *that* one teammate — 
 the one who notices when your Spring Boot version is two releases behind… 
 or when your `jjwt` dependency is older than your coffee.
