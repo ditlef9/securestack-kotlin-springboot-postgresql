@@ -17,11 +17,12 @@ and sends email alerts when newer versions are available
 
 
 Table of contents:
-1. [🖥️ Run Locally](#%EF%B8%8F-2-setup-development-environment-software-installation-guide)
-2. [☁️ Run at Hetzner (in the Cloud)](#-3-technologies-covered)
-3. [📁 App Structure](#-3-technologies-covered)
-4. [🛠️ How the Application Was Created](#-3-technologies-covered)
-5. [📜 License](#-7-license)
+1. [🖥️ Run Locally](%EF%B8%8F-1-run-locally)
+2. [☁️ Run at Hetzner (in the Cloud)](#%EF%B8%8F-2-run-at-hetzner-in-the-cloud)
+3. [📁 App Structure](#-3-app-structure)
+4. [🛠️ How the Application Was Created](#%EF%B8%8F-4-how-the-application-was-created)
+5. [🐦️ Say Hello to Magpie - The Mascot for SecureStack](#-3-technologies-covered)
+6. [📜 License](#-6-license)
 
 ---
 
@@ -222,7 +223,35 @@ src/main/resources/templates/
 
 ---
 
-## 📜 4 License
+## 🐦️ 4 Say Hello to Magpie - The Mascot for SecureStack
+
+Every software team has *that* one teammate — 
+the one who notices when your Spring Boot version is two releases behind… 
+or when your `jjwt` dependency is older than your coffee.
+
+That teammate is the **SecureStack Magpie**.
+
+Magpies are **obsessed with shiny stuff**, and ours is no different — 
+except instead of jewelry, it's addicted to **Java versions, Gradle builds, and sneaky old libraries**.
+
+It perches on your project stack like a judgmental DevOps bird, 
+watching every dependency you forget to update.
+When it finds something outdated? Boom — **email alert sent**, feathers mildly ruffled.
+
+🛠️ Tools?<br>
+🔍 Versions?<br>
+📦 Dependencies?<br>
+If it exists, the Magpie wants to collect it, label it, and yell about it when it's out of date.
+
+So yeah, SecureStack runs on Kotlin, Spring Boot, and the **anxious energy of a very organized magpie**.
+
+Let it squawk so you don't have to.
+
+
+
+---
+
+## 📜 5 License
 
 
 This project is licensed under the
