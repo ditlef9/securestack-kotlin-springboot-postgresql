@@ -3,16 +3,51 @@
 <head>
     <title>Dashboard - SecureStack</title>
     <link rel="stylesheet" th:href="@{/global.css}">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/images/securestack-magpie-16x16.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/images/securestack-magpie-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/images/securestack-magpie-256x256.png" type="image/png" sizes="256x256" />
+    <!-- //Favicon -->
 </head>
 <body>
-<h1>Dashboard</h1>
 
-<p>Welcome, <strong th:text="${username}">GitHubUser</strong></p>
+<div class="wrapper">
+    <!-- Header -->
+    <header>
+        <a href="/dashboard">
+        <img src="/images/securestack-magpie-32x32.png" alt="SecureStack Logo" class="logo"/>
+        <span>SecureStack</span>
+        </a>
+        <div class="clear"></div>
+    </header>
+    <!-- //Header -->
 
-<ul>
-    <li><a href="/apps">Manage Applications</a></li>
-    <li><a href="/teams">Your Teams</a></li>
-    <li><a href="/logout">Logout</a></li>
-</ul>
+    <!-- Main -->
+    <main>
+
+                <h1>Dashboard</h1>
+
+                <p>Welcome, <strong th:text="${username}">GitHubUser</strong></p>
+
+                <ul>
+                    <li><a href="/apps">Manage Applications</a></li>
+                    <li><a href="/teams">Your Teams</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+    </main>
+    <!-- //Main -->
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 ditlef9. All rights reserved.
+        |
+        <a href="https://github.com/ditlef9/securestack-kotlin-springboot-postgresql" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        </p>
+    </footer>
+    <!-- //Footer -->
+</div>
+
 </body>
 </html>

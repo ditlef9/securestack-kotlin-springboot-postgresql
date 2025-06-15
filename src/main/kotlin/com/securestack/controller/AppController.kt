@@ -1,6 +1,7 @@
 package com.securestack.controller
 
 import com.securestack.domain.App
+import com.securestack.domain.Team
 import com.securestack.service.AppService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -26,15 +27,23 @@ class AppController(
         return "apps/detail" // maps to templates/apps/detail.html
     }
 
-    /*
+
     @GetMapping("/create")
     fun showCreateForm(model: Model): String {
-        model.addAttribute("app", App(name = ""))
+        model.addAttribute("app", App(name = "", team = Team(name="")))  // Dummy team for binding
+        model.addAttribute("teams", appService.findAllTeams())    // Add available teams
         return "apps/create"
-    }*/
+    }
 
     @PostMapping
-    fun createApp(@ModelAttribute app: App): String {
+    fun createApp(
+        @RequestParam name: String,
+        @RequestParam teamId: Long
+    ): String {
+        val team = appService.findTeamById(teamId)
+            ?: return "redirect:/apps/create?error=teamNotFound"
+
+        val app = App(name = name, team = team)
         appService.createApp(app)
         return "redirect:/apps"
     }

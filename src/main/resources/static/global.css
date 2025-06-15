@@ -1,21 +1,150 @@
+/* src/main/resources/static/global.css */
 
-/* src/main/resources/static/css/main.css */
-
+/*- Body -------------------------------------------------------------------------- */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f5f5f5;
+    background: #f8f7f9;
+    color: #000;
+    font: normal 16px 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
+
+
+/*- Overskrifter ----------------------------------------------------------------- */
 h1 {
-    color: #333;
+	font: normal 20px 'Open Sans',sans-serif;
+    color: #292625;
+	padding: 12px 0px 12px 0px;
+	margin: 0;
 }
 
+/*- Paragrafer og span ----------------------------------------------------------- */
+p{
+	font: normal 16px 'Open Sans',sans-serif;
+    color: #000;
+	padding: 12px 0px 12px 0px;
+	margin: 0;
+}
+span{
+    color: #000;
+}
+
+/*- Linker ------------------------------------------------------------------ */
 a {
-    color: #0066cc;
-    text-decoration: none;
+	color: #44a8ec;
+	font: normal 16px 'Open Sans',sans-serif;
+	text-decoration: none;
+}
+a:hover {
+	color: #48b0f7;
+	text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
+/*- Misc ------------------------------------------------------------------ */
+div.clear{
+    clear: both;
+}
+
+/*- Wrapper ------------------------------------------------------------------ */
+div.wrapper {
+	width: 800px;
+	margin: 0px auto; 
+	padding-top: 6%;
+	padding-bottom: 6%;
+}
+@media screen and (max-width: 52.375em) {
+	div.wrapper {
+		width: 95%; 
+		margin: 0px auto; 
+		padding-top: 10%;
+	}
+}
+
+
+/*- Header ---------------------------------------------------------------- */
+header {
+    background: #21214c;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 20px 30px;
+
+    display: flex;            /* Enable Flexbox */
+    align-items: center;      /* Vertically center */
+    gap: 10px;                /* Space between image and text */
+}
+
+header a {
+    display: flex;            /* Flex for the link too */
+    align-items: center;
+    color: #fff;
+    font: bold 20px 'Open Sans', sans-serif;
+    text-decoration: none;
+    gap: 10px;
+}
+
+header img.logo {
+    width: 32px;
+    height: 32px;
+}
+
+header span {
+    color: #fff;
+}
+
+
+
+/*- Main --------------------------------------------------------------- */
+main{
+	background: #fff; 
+	padding: 20px 30px 20px 30px;
+	border-top: #000 1px solid;
+	border-bottom: #e5e5e5 1px solid;
+}
+
+
+/*- Buttons ------------------------------------------------------------------------ */
+
+.button {
+	padding: 6px 10px 6px 10px;
+	margin: 0 3px;
+	font: normal 16px 'Open Sans',sans-serif;
+	background: #fff;
+	border: #cccccc 1px solid;
+	border-radius: 5px;
+	color: #333333;
+}
+.button:hover {
+	border: #adadad 1px solid;
+	background: #e6e6e6;
+	color: #333333;
+}
+.button img {
+  vertical-align: middle;
+  margin-right: 6px; /* adds space between icon and text */
+}
+
+
+/*- Footer ------------------------------------------------------------------------ */
+footer{
+	background: #f2f0f0;
+	border-radius: 5px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	padding: 5px 30px 5px 30px;
+	text-align: center;
+}
+div.footer-links{
+
+}
+div.footer-disclaimer{
+
+ }
+footer a{
+	color: #4f4846;
+	padding: 0px 18px 0px 0px;
+}
+footer a:hover{
+	color: #000;
 }

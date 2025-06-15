@@ -3,52 +3,68 @@
 <head>
     <title>Login - SecureStack</title>
     <link rel="stylesheet" th:href="@{/login.css}">
+    <!-- Favicon -->
+        <link rel="icon" href="/images/securestack-magpie-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/images/securestack-magpie-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/images/securestack-magpie-256x256.png" type="image/png" sizes="256x256" />
+    <!-- //Favicon -->
 </head>
 <body>
 
-<div class="body-bg">
-    <main class="wrapper">
-        <!-- Header -->
-        <header>
-            <img src="/images/securestack-magpie-128x128.png" alt="SecureStack Logo" class="logo"/>
-            <h1>Welcome to SecureStack</h1>
-        </header>
-        <!-- //Header -->
+<div class="wrapper">
+    <!-- Header -->
+    <header>
+        <img src="/images/securestack-magpie-128x128.png" alt="SecureStack Logo" class="logo"/>
+
+        <h1>Welcome to SecureStack</h1>
+
+        <p>
+        <a href="/oauth2/authorization/github" class="button">
+        <img src="/icons/20x20/svg/github-black-20x20.svg" alt="/icons/20x20/svg/github-black-20x20.svg">
+        Login with GitHub
+        </a></p>
+    </header>
+    <!-- //Header -->
 
 
-        <!-- Main -->
-        <main>
+    <!-- Main -->
+    <main>
 
-            <p>SecureStack is a full-stack Kotlin Spring Boot application that helps development teams stay secure and up-to-date by monitoring software tools and project dependencies for version updates. It supports GitHub login, team-based organization, app-specific configuration, and sends email alerts when newer versions are available — making dependency tracking simple, proactive, and secure.</p>
+        <p>
+        SecureStack helps development teams stay secure and up-to-date
+        by monitoring software and project dependencies for version updates.
+        </p>
 
+
+
+        <p>
+        SecureStack supports team-based organization,
+        app-specific configuration, and sends email alerts when newer versions are
+        available — making dependency tracking simple, proactive, and secure.
+        </p>
+
+    </main>
+    <!-- //Main -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <p>© 2025 ditlef9. All rights reserved.
+            |
+            <a href="https://github.com/ditlef9/securestack-kotlin-springboot-postgresql" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </p>
+        </div>
+
+        <div class="footer-disclaimer">
             <p>
-            <a href="/oauth2/authorization/github" class="button">
-                <img src="/icons/20x20/svg/github-black-20x20.svg" alt="/icons/20x20/svg/github-black-20x20.svg">
-                Login with GitHub
-            </a></p>
-        </main>
-        <!-- //Main -->
+            This project is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>.<br>
+            You are free to use, modify, and distribute this software in both personal and commercial projects, provided that you include a copy of the license and provide appropriate attribution.<br><br>
+            There is no warranty, and the software is provided &quot;as is&quot;.
+            </p>
+        </div>
+    </footer>
+    <!-- //Footer -->
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-links">
-                <p>© 2025 ditlef9. All rights reserved.
-                |
-                <a href="https://github.com/ditlef9/securestack-kotlin-springboot-postgresql" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-                </p>
-            </div>
-
-            <div class="footer-disclaimer">
-                <p>
-                This project is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>.<br>
-                You are free to use, modify, and distribute this software in both personal and commercial projects, provided that you include a copy of the license and provide appropriate attribution.<br>
-                There is no warranty, and the software is provided "as is."
-                </p>
-            </div>
-        </footer>
-        <!-- //Footer -->
-
-    </div> <!-- //wrapper-->
-</div> <!-- //body_bg -->
+</div> <!-- //wrapper-->
 </body>
 </html>

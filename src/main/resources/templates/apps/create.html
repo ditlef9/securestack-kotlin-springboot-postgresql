@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- resources/templates/apps/create.html -->
     <title>Create App</title>
     <link rel="stylesheet" th:href="@{/global.css}">
+    <!-- Favicon -->
+    <link rel="icon" href="/images/securestack-magpie-16x16.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/images/securestack-magpie-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/images/securestack-magpie-256x256.png" type="image/png" sizes="256x256" />
+    <!-- //Favicon -->
 </head>
 <body>
 <h1>Create a New Application</h1>
-<form th:action="@{/apps}" th:object="${app}" method="post">
+
+<!-- Create app form -->
+<form th:action="@{/apps}" method="post">
     <label>Name:</label>
-    <input type="text" th:field="*{name}" placeholder="My Awesome App"/>
+    <input type="text" name="name" placeholder="My Awesome App"/>
+
+    <label>Team:</label>
+    <select name="teamId">
+        <option th:each="team : ${teams}"
+                th:value="${team.id}"
+                th:text="${team.name}">
+        </option>
+    </select>
+
     <button type="submit">Create</button>
 </form>
+
+
+<!-- //Create app form -->
+
 </body>
 </html>

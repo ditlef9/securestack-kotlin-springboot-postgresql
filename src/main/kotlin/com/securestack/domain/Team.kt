@@ -17,7 +17,7 @@ data class Team(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
-    val name: String,
+    val name: String = "",
 
     @ManyToMany(mappedBy = "teams")
     val users: List<User> = listOf()
