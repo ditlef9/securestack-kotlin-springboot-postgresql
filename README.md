@@ -225,7 +225,7 @@ src/main/resources/templates/
 
 ## 🐦️ 5 Say Hello to Magpie - The Mascot for SecureStack
 
-![Magpie - The Mascot for SecureStack](_docs/securestack-magpie-48x48.png)
+![Magpie - The Mascot for SecureStack](_docs/securestack-magpie-128x128.png)
 
 
 Every software team has *that* one teammate — 
