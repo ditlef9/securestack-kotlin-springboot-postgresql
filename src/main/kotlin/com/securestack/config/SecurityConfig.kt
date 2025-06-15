@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
@@ -40,7 +42,18 @@ class SecurityConfig {
                     .logoutSuccessUrl("/")
                     .invalidateHttpSession(true)
             }
+            .rememberMe { remember ->
+                remember
+                    .key("securestack-unique-remember-me-key")
+                    .tokenValiditySeconds(7 * 24 * 60 * 60)
+                    .userDetailsService(userDetailsService()) // ← explicitly provided
+            }
 
         return http.build()
     }
+    @Bean
+    fun userDetailsService(): UserDetailsService {
+        return InMemoryUserDetailsManager() // Empty dummy user store
+    }
+
 }
