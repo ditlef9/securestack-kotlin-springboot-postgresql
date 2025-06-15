@@ -55,13 +55,38 @@ git clone https://github.com/ditlef9/securestack-kotlin-springboot-postgresql.gi
 
 The Project uses the [latest LTS version of Java](https://www.oracle.com/java/technologies/java-se-support-roadmap.html).
 
-### 1.5 Set application properties
 
-Go to `src/main/resources/application.properties`:
+### 1.5 Create GitHub Login
 
-* Update PostgreSQL username+password
-* Update JWT Secret
+https://github.com/settings/applications/new
 
+* Application name: SecureStack-dev
+* Homepage URL: http://localhost:8080
+* Application description: SecureStack helps teams track software tools and dependencies across projects, alerting you when new versions or updates are available — so your stack stays secure, modern, and under control.
+* Authorization callback URL: http://localhost:8080
+
+### 1.6 Set Application Properties as Environment Variables
+
+In the file `src/main/resources/application.properties` we see that you
+need to set some environment variables.
+They can be set in IntelliJ with Run Configuration.
+
+The variables are:
+
+```
+SPRING_DATASOURCE_USERNAME=postgres
+SPRING_DATASOURCE_PASSWORD=root
+
+JWT_SECRET=wiLD0mLuLJ6n3wqazc7OecFGldVr7/XB0GlCzH6k+Jc=
+
+GITHUB_CLIENT_ID=Iv1abcd1234efgh5678
+GITHUB_CLIENT_SECRET=9f8e7d6c5b4a3f2e1d0c9b8a7e6d5c4b3a2f1e0d
+
+```
+
+### 1.7 Visit localhost
+
+http://localhost:8080
 
 
 
@@ -127,6 +152,109 @@ Tables:
                                   | app_id (FK -> applications.id) |
                                   +----------------------------+
 ```
+
+### Example of how Create Team is structured:
+
+#### 1. `domain/Team.kt`
+
+* Defines the `Team` entity with fields like `id` and `name`.
+* Maps to the database table `teams` using JPA annotations.
+
+```kotlin
+@Entity
+@Table(name = "teams")
+data class Team(
+    @Id @GeneratedValue
+    val id: Long = 0,
+
+    val name: String
+)
+```
+
+#### 2. controller/TeamController.kt
+
+Handles HTTP requests related to Teams.
+
+* **Show Create Team Form** (GET `/teams/create`):
+
+```kotlin
+@GetMapping("/create")
+fun showCreateForm(model: Model): String {
+    model.addAttribute("team", Team(name = ""))
+    return "teams/create"
+}
+```
+
+* **Handle Create Team Form Submission** (POST `/teams`):
+
+```kotlin
+@PostMapping
+fun createTeam(@ModelAttribute team: Team): String {
+    teamService.save(team)
+    return "redirect:/teams"
+}
+```
+
+#### 3. `service/TeamService.kt`
+
+* Contains business logic for Teams.
+* Talks to the repository to fetch, save, and delete teams.
+
+```kotlin
+@Service
+class TeamService(
+    private val teamRepository: TeamRepository
+) {
+    fun findAll(): List<Team> = teamRepository.findAll()
+    fun findById(id: Long): Team? = teamRepository.findById(id).orElse(null)
+    fun save(team: Team): Team = teamRepository.save(team)
+    fun deleteById(id: Long) = teamRepository.deleteById(id)
+}
+```
+
+#### 4. `repository/TeamRepository.kt`
+
+* Interface extending `JpaRepository` for basic CRUD operations on `Team`
+
+```kotlin
+interface TeamRepository : JpaRepository<Team, Long>
+```
+#### 5. `templates/teams/create.html`
+
+* Thymeleaf template for the **Create Team** form.
+
+```html
+<form th:action="@{/teams}" th:object="${team}" method="post">
+    <label for="name">Team Name:</label>
+    <input type="text" id="name" th:field="*{name}" placeholder="Enter team name" required />
+    <button type="submit">Create Team</button>
+</form>
+```
+
+This structure cleanly separates concerns:
+
+* **Domain:** Defines data models and database mappings.
+
+* **Controller:** Handles web requests and responses.<br>
+  Handles incoming HTTP requests and returns responses (views or redirects).<br>
+  Shows the team creation form (GET /teams/create) and processes form submission (POST /teams).
+  It takes user input and calls the Service to save the team.
+
+
+* **Service:** Contains business logic and data manipulation.<br>
+  Contains business logic and orchestrates operations, applying rules or validations.<br>
+  Takes the Team object from the controller and tells the Repository to save it.
+  Could also include validation or other logic before saving.
+
+* **Repository:** Data access layer.<br>
+  Directly communicates with the database to perform CRUD operations.<br>
+  Saves the Team entity to the database or fetches teams from the database. 
+  It abstracts the data layer and hides database details from the rest of the app.
+
+* **Template:** UI form for user interaction.
+
+
+
 
 ---
 

@@ -1,0 +1,157 @@
+
+
+/*- Body -------------------------------------------------------------------------- */
+html{
+    height: 100%;
+}
+body {
+	background: #1d2531;
+	color: #000;
+	font: normal 16px 'Open Sans',sans-serif;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	margin: 0;
+}
+
+
+
+/*- Overskrifter ----------------------------------------------------------------- */
+h1 {
+	font: normal 20px 'Open Sans',sans-serif;
+    	color: #292625;
+	padding: 12px 0px 12px 0px;
+	margin: 0;
+}
+
+/*- Paragrafer og span ----------------------------------------------------------- */
+p{
+	font: normal 16px 'Open Sans',sans-serif;
+        color: #000;
+	padding: 12px 0px 12px 0px;
+	margin: 0;
+}
+span{
+        color: #000;
+}
+
+/*- Linker ------------------------------------------------------------------ */
+a {
+	color: #44a8ec;
+	font: normal 16px 'Open Sans',sans-serif;
+	text-decoration: none;
+}
+a:hover {
+	color: #48b0f7;
+	text-decoration: none;
+}
+
+/*- Wrapper ------------------------------------------------------------------ */
+div.body-bg {
+    margin: 0;
+    padding: 0;
+    background: url('images/securestack-magpie-128x128.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+
+
+div.wrapper {
+	width: 550px; 
+	margin: 0px auto; 
+	padding-top: 6%;
+}
+@media screen and (max-width: 52.375em) {
+	div.wrapper {
+		width: 95%; 
+		margin: 0px auto; 
+		padding-top: 10%;
+	}
+}
+
+
+/*- Header ---------------------------------------------------------------- */
+header{
+	background: #263544;
+	border-radius: 5px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	padding: 20px 30px 20px 30px;
+}
+
+
+
+header p{
+	padding: 0px 0px 0px 0px;
+	margin: 0;	
+}
+header a{
+	color: #fff;
+	font: bold 20px 'Open Sans',sans-serif;
+	padding: 0;
+	margin: 0;
+}
+header a:hover{
+	color: #fff;
+}
+header span{
+	color: #fff;
+	font: bold 12px 'Open Sans',sans-serif;
+	vertical-align: super;
+	margin-top: 10px;
+}
+
+
+/*- Main --------------------------------------------------------------- */
+main{
+	background: #fff; 
+	padding: 20px 30px 20px 30px;
+	border-top: #000 1px solid;
+	border-bottom: #e5e5e5 1px solid;
+}
+
+/*- Buttons ------------------------------------------------------------------------ */
+
+.button {
+	padding: 6px 10px 6px 10px;
+	margin: 0 3px;
+	font: normal 14px 'Open Sans',sans-serif;
+	background: #fff;
+	border: #cccccc 1px solid;
+	border-radius: 5px;
+	color: #333333;
+}
+.button:hover {
+	border: #adadad 1px solid;
+	background: #e6e6e6;
+	color: #333333;
+}
+.button img {
+  vertical-align: middle;
+  margin-right: 6px; /* adds space between icon and text */
+}
+
+
+/*- Footer ------------------------------------------------------------------------ */
+footer{
+	background: #f2f0f0;
+	border-radius: 5px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	padding: 5px 30px 5px 30px;
+	text-align: right;
+}
+div.footer-links{
+
+}
+div.footer-disclaimer{
+
+ }
+footer a{
+	color: #4f4846;
+	padding: 0px 18px 0px 0px;
+}
+footer a:hover{
+	color: #000;
+}

@@ -2,14 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login - SecureStack</title>
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/login.css}">
 </head>
 <body>
-<h1>Welcome to SecureStack</h1>
-<p>Track and secure your dependencies easily.</p>
 
-<a href="/oauth2/authorization/github">
-    <button>Login with GitHub</button>
-</a>
+<div class="body-bg">
+    <main class="wrapper">
+        <!-- Header -->
+        <header>
+            <img src="/images/securestack-magpie-128x128.png" alt="SecureStack Logo" class="logo"/>
+            <h1>Welcome to SecureStack</h1>
+        </header>
+        <!-- //Header -->
+
+
+        <!-- Main -->
+        <main>
+
+            <p>SecureStack is a full-stack Kotlin Spring Boot application that helps development teams stay secure and up-to-date by monitoring software tools and project dependencies for version updates. It supports GitHub login, team-based organization, app-specific configuration, and sends email alerts when newer versions are available — making dependency tracking simple, proactive, and secure.</p>
+
+            <p>
+            <a href="/oauth2/authorization/github" class="button">
+                <img src="/icons/20x20/svg/github-black-20x20.svg" alt="/icons/20x20/svg/github-black-20x20.svg">
+                Login with GitHub
+            </a></p>
+        </main>
+        <!-- //Main -->
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <p>© 2025 ditlef9. All rights reserved.
+                |
+                <a href="https://github.com/ditlef9/securestack-kotlin-springboot-postgresql" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                </p>
+            </div>
+
+            <div class="footer-disclaimer">
+                <p>
+                This project is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache License 2.0</a>.<br>
+                You are free to use, modify, and distribute this software in both personal and commercial projects, provided that you include a copy of the license and provide appropriate attribution.<br>
+                There is no warranty, and the software is provided "as is."
+                </p>
+            </div>
+        </footer>
+        <!-- //Footer -->
+
+    </div> <!-- //wrapper-->
+</div> <!-- //body_bg -->
 </body>
 </html>

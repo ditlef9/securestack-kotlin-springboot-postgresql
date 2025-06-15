@@ -26,6 +26,13 @@ class AppController(
         return "apps/detail" // maps to templates/apps/detail.html
     }
 
+    /*
+    @GetMapping("/create")
+    fun showCreateForm(model: Model): String {
+        model.addAttribute("app", App(name = ""))
+        return "apps/create"
+    }*/
+
     @PostMapping
     fun createApp(@ModelAttribute app: App): String {
         appService.createApp(app)

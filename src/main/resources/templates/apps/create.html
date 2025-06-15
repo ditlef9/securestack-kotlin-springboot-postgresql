@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create App</title>
+    <link rel="stylesheet" th:href="@{/global.css}">
+</head>
+<body>
+<h1>Create a New Application</h1>
+<form th:action="@{/apps}" th:object="${app}" method="post">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" placeholder="My Awesome App"/>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>

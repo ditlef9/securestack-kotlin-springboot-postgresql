@@ -15,7 +15,15 @@ class SecurityConfig {
         http
             .authorizeHttpRequests { auth ->
                 auth
-                    .requestMatchers("/", "/login", "/css/**", "/js/**").permitAll()
+                    .requestMatchers("/",
+                        "/login",
+                        "/css/**",
+                        "/js/**",
+                        "/images/securestack-magpie-128x128.png",
+                        "/icons/20x20/svg/github-black-20x20.svg",
+                        "/login.css",
+                        "/global.css",
+                        "/favicon.ico").permitAll()
                     .anyRequest().authenticated()
             }
             .oauth2Login { oauth ->
